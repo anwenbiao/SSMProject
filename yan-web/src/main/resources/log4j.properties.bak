@@ -1,0 +1,36 @@
+#rootLogger
+log4j.rootLogger=debug,mybatis,stdout
+
+### \u6bcf\u5929\u4ea7\u751f\u4e00\u4e2a\u65e5\u5fd7 ###
+log4j.appender.stdout=org.apache.log4j.DailyRollingFileAppender
+log4j.appender.stdout.File=../logs/business.log
+log4j.appender.stdout.MaxFileSize=10MB
+### \u8f93\u51fa\u5230\u63a7\u5236\u53f0 ###
+#log4j.appender.stdout=org.apache.log4j.ConsoleAppender 
+#log4j.appender.stdout.Target=System.out
+
+log4j.appender.stdout.layout=org.apache.log4j.PatternLayout 
+log4j.appender.stdout.layout.ConversionPattern=[%d{yyyy-MM-dd HH:mm:ss.SSS}]%t %c{1} %m%n
+
+#mybatis
+log4j.logger.org.mybatis=debug,mybatis
+log4j.logger.com.ibatis=debug,mybatis
+log4j.logger.com.ibatis.common.jdbc.SimpleDataSource=debug,mybatis
+log4j.logger.com.ibatis.common.jdbc.ScriptRunner=debug,mybatis
+log4j.logger.com.ibatis.sqlmap.engine.impl.SqlMapClientDelegate=debug,mybatis
+log4j.logger.java.sql.Connection=debug,mybatis
+log4j.logger.java.sql.Statement=debug,mybatis
+log4j.logger.java.sql.PreparedStatement=debug,mybatis
+
+### \u6bcf\u5929\u751f\u6210\u4e00\u4e2a\u65e5\u5fd7\u6587\u4ef6 ###
+log4j.appender.stdout=org.apache.log4j.DailyRollingFileAppender 
+log4j.appender.stdout.File=../logs/mybatis.log
+log4j.appender.stdout.MaxFileSize=10MB
+### \u8f93\u51fa\u5230\u63a7\u5236\u53f0 ###
+#log4j.appender.mybatis=org.apache.log4j.ConsoleAppender 
+#log4j.appender.mybatis.Target=System.out
+log4j.appender.mybatis.layout=org.apache.log4j.PatternLayout 
+log4j.appender.mybatis.layout.ConversionPattern=[%d{yyyy-MM-dd HH:mm:ss.SSS}]%t %c{1} %m%n
+
+
+
