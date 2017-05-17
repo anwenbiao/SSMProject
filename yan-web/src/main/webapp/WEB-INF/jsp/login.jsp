@@ -11,7 +11,7 @@
 var basePath="${pageContext.request.contextPath}"
 $(function(){
 	var p={"userName":"安文彪","password":"123456"};
-	alert(typeof JSON.stringify(p));
+	//alert(typeof JSON.stringify(p));
 	$.ajax({
 		url:basePath+"/queryAll.action",
 		data:{"userName":"安文彪","password":"123456"},
@@ -28,5 +28,14 @@ $(function(){
 <h1>hell word</h1>
 <h2 id="h2"></h2>
 <a href="http://localhost:8080/yan-web/login.action">测试路径</a>
+
+<form action="http://localhost:8080/yan-web/uploadAction/upload.action" enctype="multipart/form-data" method="post">
+	<input type="file" name="file" value="上传文件">
+	<input type="submit" value="提交">
+</form>
+<form action="http://localhost:8080/yan-web/uploadAction/mvcUpload.action" enctype="multipart/form-data" method="post">
+	<input type="file" name="mvcfile" value="上传文件">
+	<input type="submit" value="提交">
+</form>
 </body>
 </html>

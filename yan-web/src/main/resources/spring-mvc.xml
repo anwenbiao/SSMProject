@@ -8,24 +8,28 @@
 		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.1.xsd
 		http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-3.1.xsd
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd">
-     <!-- 配置返回数据解析json -->
-    <!--  <mvc:annotation-driven>
-	     <mvc:message-converters>
-	            <bean class="org.springframework.http.converter.StringHttpMessageConverter"/>
-	            <bean class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
-	           
-	            </bean>
-	   </mvc:message-converters>
-	</mvc:annotation-driven> -->
-     <mvc:annotation-driven/>
+	<!-- 配置返回数据解析json -->
+	<!-- <mvc:annotation-driven> <mvc:message-converters> <bean class="org.springframework.http.converter.StringHttpMessageConverter"/> 
+		<bean class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter"> 
+		</bean> </mvc:message-converters> </mvc:annotation-driven> -->
+	<mvc:annotation-driven />
+	<context:component-scan base-package="com.yan.web.**"></context:component-scan>
 
-     
-     
-     
-     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-     	<property name="prefix" value="/WEB-INF/jsp/" />
+
+
+	<!--spring mvc 上传文件 -->
+	<bean id="multipartResolver"
+		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<property name="defaultEncoding" value="utf-8"></property>
+		<property name="maxUploadSize" value="10485760000"></property>
+		<property name="maxInMemorySize" value="40960"></property>
+		<property name="uploadTempDir" value="fileUpload/temp"></property>
+	</bean>
+	<!-- 配置视图解析器 -->
+	<bean
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix" value="/WEB-INF/jsp/" />
 		<property name="suffix" value=".jsp" />
-     </bean>
-     
-     <context:component-scan base-package="com.yan.web.**"></context:component-scan>
+	</bean>
+
 </beans>     
