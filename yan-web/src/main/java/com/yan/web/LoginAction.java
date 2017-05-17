@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.apache.ibatis.session.RowBounds;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -91,6 +92,11 @@ public class LoginAction {
 		
 		
 		return user;
+	}
+	@RequestMapping("/queryByPage")
+	public void queryByPage(){
+		RowBounds bound = new RowBounds(1,10);
+		List<User> list = userService.queryByPage(bound);
 	}
 	
 }

@@ -2,6 +2,8 @@ package com.yan.servlet.impl;
 
 import java.util.List;
 
+import org.apache.ibatis.session.RowBounds;
+
 import com.yan.dao.BaseDao;
 
 public abstract class BaseServiceAbstract<T> {
@@ -30,5 +32,9 @@ public abstract class BaseServiceAbstract<T> {
 	
 	public int queryByCount(Object t){
 		return getDao().queryByCount(t);
+	}
+	
+	public List<T> queryByPage(RowBounds row){
+		return getDao().queryByPage(row);
 	}
 }

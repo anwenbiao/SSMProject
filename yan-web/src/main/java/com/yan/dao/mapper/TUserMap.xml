@@ -13,5 +13,9 @@
 	<select id="queryAll" resultType="com.yan.entity.User">
 		select user_name,password from t_user
 	</select>
+	
+	<select id="queryByPage" resultType="com.yan.entity.User">
+		select user_name,password from t_user
+	</select>
     
 </mapper>
